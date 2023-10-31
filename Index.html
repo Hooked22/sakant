@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edag">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reg</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+<div class="container">
+
+  <div class="message-card">
+    <div class="logo-pic">
+      <img src="images/logo.png" alt="logo-pic" width="150px">
+    </div>
+    <div class="title">
+      <h1>please Registration</h1>
+      <br>
+      <h3>to Rent</h3>
+    </div>
+    <form onsubmit="sendEmail(); reset(); return fales;">
+
+      <input type="text" id="name" placeholder="your name" required>
+      <input type="text" id="name" placeholder="last name" required>
+      <input type="email" id="email" placeholder="Email ID" required>
+      <input type="text" id="Phone" placeholder="Phone no" required>
+      <input type="text" name="" placeholder="Type of room">
+      <input type="text" name="" placeholder="Duration of room reservation">
+      <textarea id="message" cols="30" rows="4" placeholder="leave your message"></textarea>
+      <button id="submit" type="submit">send</button>
+    </form>
+
+
+  </div>
+</div>
+
+
+<script src=" https://smtpjs.com/v3/smtp.js"></script>
+<script>
+  function sendEmail()
+  {
+
+    Email.send({
+    SecureToken : "f7a6a329-7e9e-4ac7-827c-7a8db5fd5272",
+    To : 'samiandsama818@gmail.com',
+    From : "samiandsama818@gmail.com",
+    Subject : "test email",
+    Body : "name: " + document.getElementById("name").value
+    + "<br> Email: " + document.getElementById("email").value
+    + "<br> Phone no: " + document.getElementById("Phone").value
+    + "<br> message: " + document.getElementById("message").value
+}).then(
+  message => alert("message sent succesfully ")
+);
+
+  }
+
+
+</script>
+</body>
+</html>
